@@ -1,9 +1,8 @@
 """doc"""
 
 
-def main(num):
+def main(num, agent=0):
     """doc"""
-    agent = 0
     lis = [0.07, 0.10, 0.15, 0.18, 0.20]
     nummber = [list(range(10, 21)), list(range(21, 31)), list(range(31, 41)), list(range(41, 61))]
     for i in range(len(nummber)):
@@ -13,7 +12,6 @@ def main(num):
         return print("I don't care.")
     elif agent == 0 and num > 60:
         agent = lis[-1]
-
     print("%.3f" % ((1 - agent) * num))
 
 

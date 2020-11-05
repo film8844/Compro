@@ -9,15 +9,12 @@ def score(game, i):
         return 10
     elif game[i] == '/':
         return 10 - score(game, i - 1)
-    else:
-        return 0
+    return 0
 
 
-def main(play):
+def main(play, tamm=0):
     """doc"""
-    last = play[-1]
-    play = ''.join(play)
-    tamm = 0
+    last, play = play[-1], ''.join(play)
     for i in range(len(play) - len(last)):
         if play[i] == 'X':
             tamm += score(play, i + 1)
@@ -25,7 +22,6 @@ def main(play):
         elif play[i] == '/':
             tamm += score(play, i + 1)
         tamm += score(play, i)
-
     for i in range(len(last)):
         tamm += score(last, i)
     print(tamm)
